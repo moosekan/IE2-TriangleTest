@@ -36,7 +36,7 @@ class Triangle:
             else:
                 return Triangle.Type.SCALENE
 
-        if trian > 3:
+        if trian >=6:
             return Triangle.Type.EQUILATERAL
 
         if trian == 1 and a + b > c:
@@ -45,5 +45,6 @@ class Triangle:
             return Triangle.Type.ISOSCELES
         elif trian == 3 and b + c > a:
             return Triangle.Type.ISOSCELES
+            
         
         return Triangle.Type.INVALID
