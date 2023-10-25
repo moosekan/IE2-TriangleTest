@@ -1,5 +1,6 @@
 import unittest
 import inspect
+import types
 from isTriangle import Triangle
 
 
@@ -41,7 +42,7 @@ class TriangleTest(unittest.TestCase):
 
     def test_isosceles(self):
         self.assertEqual(Triangle.classify(5, 5, 6), Triangle.Type.ISOSCELES)
-        self.assertEqual(Triangle.classify(3, 3, 4), Triangle.Type.ISOSCELES)
+        self.assertEqual(Triangle.classify(3, 3, 5), Triangle.Type.ISOSCELES)
         self.assertEqual(Triangle.classify(5, 6, 5), Triangle.Type.ISOSCELES)
         self.assertEqual(Triangle.classify(6, 5, 5), Triangle.Type.ISOSCELES)
 
@@ -59,9 +60,10 @@ class TriangleTest(unittest.TestCase):
         self.assertEqual(Triangle.classify(1, 1, 0), Triangle.Type.INVALID)
         self.assertEqual(Triangle.classify(1, 0, 1), Triangle.Type.INVALID)
         self.assertEqual(Triangle.classify(0, 1, 1), Triangle.Type.INVALID)
-
-
-
+    def test_static(self):
+        static_methods = [name for name, method in Triangle.__dict__.items() if isinstance(method, staticmethod)]
+        number_of_static_methods = len(static_methods)
+        self.assertEqual(number_of_static_methods, 1)
 
 if __name__ == '__main__':
     unittest.main()

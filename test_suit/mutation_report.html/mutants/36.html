@@ -36,7 +36,7 @@
 <h3>Details</h3>
 <ul>
     <li>module - <code><module 'isTriangle' from './isTriangle.py'></code></li>
-    <li><span class="label label-danger">survived</span></li>
+    <li><span class="label label-success">killed</span> by <code>test_static (test_mutationAdequate.TriangleTest)</code></li>
     
     <li>duration - 0.006 s</li>
     
@@ -44,6 +44,13 @@
     <li>tests run - 8</li>
     
 </ul>
+
+<h3>Exception traceback</h3>
+<pre>Traceback (most recent call last):
+  File "./test_mutationAdequate.py", line 66, in test_static
+    self.assertEqual(number_of_static_methods, 1)
+AssertionError: 0 != 1
+</pre>
 
 <h3>Mutations</h3>
 <ul>

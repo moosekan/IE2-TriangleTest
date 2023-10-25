@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>MutPy mutation report - mutation #43</title>
+    <title>MutPy mutation report - mutation #74</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
     
@@ -21,7 +21,7 @@
     SyntaxHighlighter.all();
     window.setTimeout(function () {
         
-        $('.line.number21').attr('title', 'ROR');
+        $('.line.number47').attr('title', 'ROR');
         
     }, 0);
 </script>
@@ -31,35 +31,28 @@
     <div class="container">
         
 <div class="page-header">
-    <h1>Mutation #43</h1>
+    <h1>Mutation #74</h1>
 </div>
 <h3>Details</h3>
 <ul>
     <li>module - <code><module 'isTriangle' from './isTriangle.py'></code></li>
-    <li><span class="label label-success">killed</span> by <code>test_zero_condition (test_mutationAdequate.TriangleTest)</code></li>
+    <li><span class="label label-danger">survived</span></li>
     
     <li>duration - 0.006 s</li>
     
     
-    <li>tests run - 9</li>
+    <li>tests run - 8</li>
     
 </ul>
-
-<h3>Exception traceback</h3>
-<pre>Traceback (most recent call last):
-  File "./test_mutationAdequate.py", line 62, in test_zero_condition
-    self.assertEqual(Triangle.classify(0, 1, 1), Triangle.Type.INVALID)
-AssertionError: <Type.ISOSCELES: 3> != <Type.INVALID: 0>
-</pre>
 
 <h3>Mutations</h3>
 <ul>
     
-    <li>ROR - line 21</li>
+    <li>ROR - line 47</li>
     
 </ul>
 <h3>Mutant</h3>
-<pre class="brush: python; first-line: 1; highlight: [21]; toolbar: false;">from enum import Enum
+<pre class="brush: python; first-line: 1; highlight: [47]; toolbar: false;">from enum import Enum
 
 
 class Triangle:
@@ -79,7 +72,7 @@ class Triangle:
         This static method does the actual classification of a triangle, given the lengths
         of its three sides.
         '''
-        if (a < 0 or b <= 0 or c <= 0):
+        if (a <= 0 or b <= 0 or c <= 0):
             return Triangle.Type.INVALID
         
         trian = 0
@@ -99,12 +92,13 @@ class Triangle:
         
         if trian >= 6:
             return Triangle.Type.EQUILATERAL
-        
+        if (trian == 1 and a + b == c):
+            return Triangle.Type.INVALID
         if (trian == 1 and a + b > c):
             return Triangle.Type.ISOSCELES
         elif (trian == 2 and a + c > b):
             return Triangle.Type.ISOSCELES
-        elif (trian == 3 and b + c > a):
+        elif (trian == 3 and b + c >= a):
             return Triangle.Type.ISOSCELES
         
         
