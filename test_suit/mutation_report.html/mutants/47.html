@@ -38,10 +38,10 @@
     <li>module - <code><module 'isTriangle' from './isTriangle.py'></code></li>
     <li><span class="label label-success">killed</span> by <code>test_zero_condition (test_mutationAdequate.TriangleTest)</code></li>
     
-    <li>duration - 0.006 s</li>
+    <li>duration - 0.007 s</li>
     
     
-    <li>tests run - 9</li>
+    <li>tests run - 10</li>
     
 </ul>
 
@@ -97,7 +97,7 @@ class Triangle:
             else:
                 return Triangle.Type.SCALENE
         
-        if trian >= 6:
+        if trian > 3:
             return Triangle.Type.EQUILATERAL
         
         if (trian == 1 and a + b > c):

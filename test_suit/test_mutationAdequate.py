@@ -64,6 +64,10 @@ class TriangleTest(unittest.TestCase):
         static_methods = [name for name, method in Triangle.__dict__.items() if isinstance(method, staticmethod)]
         number_of_static_methods = len(static_methods)
         self.assertEqual(number_of_static_methods, 1)
+    def test_invalid_62(self):
+        self.assertEqual(Triangle.classify(5, 5, 10), Triangle.Type.INVALID)
+        self.assertEqual(Triangle.classify(5, 10, 5), Triangle.Type.INVALID)
+        self.assertEqual(Triangle.classify(10, 5, 5), Triangle.Type.INVALID)
 
 if __name__ == '__main__':
     unittest.main()
